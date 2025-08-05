@@ -19,6 +19,7 @@ jobs:
 
       - name: OpenWeather API로 서울 날씨 업데이트
         run: |
+          cd $GITHUB_WORKSPACE
           python -m pip install --upgrade pip
           python -m pip install requests python-dotenv
           python update_weather.py
