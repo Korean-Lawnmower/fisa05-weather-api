@@ -3,7 +3,7 @@
 # pip install python-dotenv requests
 import requests
 import os
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -31,7 +31,8 @@ def get_weather():
 def update_readme():
     """README.md 파일을 업데이트"""
     weather_info = get_weather()
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    KST = timezone(timedelta(hours=9))
+    now = datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S")
 
     readme_content = f"""
 # Weather API Status
